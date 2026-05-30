@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio de Hadja Sory Binta BAH — Développeuse Full-Stack & Systèmes d'information, M2 MIAGE Université de Rennes." />
+  <title>Hadja Sory Binta BAH — Développeuse Full-Stack</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tabler Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
+
+  <style>
+    /* =====================================================
+       VARIABLES & RESET
+    ===================================================== */
+    :root {
+      --bg:        #FFFAF7;
+      --text:      #4A3728;
+      --accent:    #B07A5C;
+      --text-sec:  #8C6E5E;
+      --beige:     #F5EDE6;
+      --border:    #EAD8CE;
+      --font-title: 'Playfair Display', Georgia, serif;
+      --font-body:  'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       NAV
+    ===================================================== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 250, 247, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-name {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-name span { color: var(--accent); font-style: italic; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-sec);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5.5rem 2.5rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--beige);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 em { color: var(--accent); font-style: italic; }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-sec);
+      max-width: 530px;
+      margin-bottom: 2.25rem;
+      line-height: 1.75;
+    }
+
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.75rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 2px 12px rgba(176, 122, 92, 0.3);
+    }
+    .btn-primary:hover {
+      background: #9a6649;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(176, 122, 92, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.75rem 1.6rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-avatar {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      box-shadow:
+        0 8px 30px rgba(176, 122, 92, 0.35),
+        0 0 0 6px rgba(176, 122, 92, 0.12);
+      flex-shrink: 0;
+    }
+
+    /* =====================================================
+       SECTION COMMONS
+    ===================================================== */
+    section { padding: 5rem 2.5rem; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-header { margin-bottom: 3rem; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+
+    /* =====================================================
+       PROJECTS
+    ===================================================== */
+    #projects { background: var(--beige); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(74, 55, 40, 0.1);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--beige), var(--border));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+    }
+    .badge-done     { background: #eaf5eb; color: #2e7d32; }
+    .badge-progress { background: #fff8e1; color: #e65100; }
+    .badge-personal { background: var(--beige); color: var(--accent); border: 1px solid var(--border); }
+
+    .card h3 {
+      font-family: var(--font-title);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: var(--text-sec);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .tag {
+      font-size: 0.73rem;
+      font-weight: 500;
+      background: var(--beige);
+      color: var(--text-sec);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-sec);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .card-link:hover { color: var(--accent); }
+
+    /* =====================================================
+       TIMELINE — EXPERIENCES
+    ===================================================== */
+    #experiences { background: var(--bg); }
+
+    .timeline { position: relative; padding-left: 2.25rem; }
+
+    /* ligne verticale */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.75rem;
+      padding-bottom: 3rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    /* puce */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-2.25rem + 5px - 5px);
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .timeline-date {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-role {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-org {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-sec);
+      margin-bottom: 0.65rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--text-sec);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    /* =====================================================
+       SKILLS
+    ===================================================== */
+    #skills { background: var(--beige); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-group {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      transition: transform 0.2s;
+    }
+    .skill-group:hover { transform: translateY(-2px); }
+
+    .skill-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    /* =====================================================
+       FOOTER / CONTACT
+    ===================================================== */
+    footer {
+      background: var(--text);
+      color: var(--beige);
+      padding: 4rem 2.5rem 3rem;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 700px; margin: 0 auto; }
+
+    .footer-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 700;
+      color: var(--beige);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+    .footer-title em { color: var(--accent); font-style: italic; }
+
+    .footer-sub {
+      font-size: 0.95rem;
+      color: #c9b5a8;
+      margin-bottom: 2.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--beige);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.65rem 1.3rem;
+      border-radius: 8px;
+      border: 1px solid rgba(234, 216, 206, 0.2);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .footer-link:hover {
+      background: rgba(176, 122, 92, 0.25);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .footer-copy {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: #7a6158;
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 768px) {
+      nav { padding: 0.85rem 1.5rem; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 3.5rem 1.5rem 4.5rem;
+        gap: 2rem;
+      }
+      .hero-avatar { margin: 0 auto; order: -1; }
+      .hero-desc { margin: 0 auto 2rem; }
+      .hero-buttons { justify-content: center; }
+
+      section { padding: 4rem 1.5rem; }
+      footer  { padding: 3rem 1.5rem 2.5rem; }
+    }
+
+    @media (max-width: 520px) {
+      .nav-links { display: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid  { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================================================
+       NAV
+  =================================================== -->
+  <nav>
+    <a class="nav-name" href="#hero">Hadja Sory Binta <span>BAH</span></a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#experiences">Expériences</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================================================
+       HERO
+  =================================================== -->
+  <div id="hero">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="ti ti-school"></i>
+          M2 MIAGE · Université de Rennes
+        </div>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EAF3DE;color:#3B6D11;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin-left:0.5rem;">🟢 Disponible pour un CDI</span>
+        <h1>
+          Développeuse<br />
+          <em>Full-Stack</em> &amp;<br />
+          Systèmes d'information
+        </h1>
+        <p class="hero-desc">
+          Passionnée par le développement logiciel et l'intégration de systèmes,
+          j'allie rigueur technique et sens du produit pour concevoir des applications
+          robustes et maintenables.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary">
+            <i class="ti ti-layout-grid"></i>
+            Voir mes projets
+          </a>
+          <a href="https://www.linkedin.com/in/hadja-sory-binta-bah/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <i class="ti ti-brand-linkedin"></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <img src="photo.jpeg" alt="Hadja Sory Binta BAH" class="hero-avatar" />
+    </div>
+  </div>
+
+  <!-- ===================================================
+       PROJETS
+  =================================================== -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Mes <em>projets</em></h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Ticketio -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-ticket"></i></div>
+            <span class="badge badge-done">Terminé</span>
+          </div>
+          <h3>Ticketio</h3>
+          <p>Système de billetterie en ligne avec gestion des événements, réservations et paiements. Architecture REST API robuste.</p>
+          <div class="card-tags">
+            <span class="tag">Angular</span>
+            <span class="tag">Java</span>
+            <span class="tag">REST API</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
+            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
+          </div>
+        </article>
+
+        <!-- Consultations prénatales -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-heart-rate-monitor"></i></div>
+            <span class="badge badge-done">Terminé</span>
+          </div>
+          <h3>Consultations prénatales</h3>
+          <p>Application web médicale pour le suivi des consultations prénatales, dossiers patients et gestion des rendez-vous.</p>
+          <div class="card-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">Laravel</span>
+            <span class="tag">MySQL</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
+            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
+          </div>
+        </article>
+
+        <!-- Club sportif -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-trophy"></i></div>
+            <span class="badge badge-done">Terminé</span>
+          </div>
+          <h3>Club sportif</h3>
+          <p>Application de gestion d'un club sportif : membres, abonnements, planification des activités et créneaux horaires.</p>
+          <div class="card-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">Symfony</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
+            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
+          </div>
+        </article>
+
+        <!-- Mini-éditeur de texte -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-pencil"></i></div>
+            <span class="badge badge-done">Terminé</span>
+          </div>
+          <h3>Mini-éditeur de texte</h3>
+          <p>Éditeur de texte implémentant les Design Patterns Command, Observer et Memento pour undo/redo et édition avancée.</p>
+          <div class="card-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Design Patterns</span>
+            <span class="tag">POO</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
+            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
+          </div>
+        </article>
+
+        <!-- Agence immobilière -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-building"></i></div>
+            <span class="badge badge-personal">Personnel</span>
+          </div>
+          <h3>Agence immobilière</h3>
+          <p>Plateforme de gestion de biens immobiliers : annonces, recherche avancée, prise de contact et tableau de bord.</p>
+          <div class="card-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">Symfony</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
+            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
+          </div>
+        </article>
+
+        <!-- Projet Data -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-chart-bar"></i></div>
+            <span class="badge badge-done">Terminé</span>
+          </div>
+          <h3>Projet Data</h3>
+          <p>Pipeline ETL pour l'extraction, la transformation et le chargement de données métier avec tableaux de bord analytiques.</p>
+          <div class="card-tags">
+            <span class="tag">Talend</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">ETL</span>
+          </div>
+          <div class="card-links">
+            <a href="#" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
+            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       EXPÉRIENCES
+  =================================================== -->
+  <section id="experiences">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-label">Parcours</p>
+        <h2 class="section-title">Expériences <em>professionnelles</em></h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <p class="timeline-date">Sept. 2024 — En cours</p>
+          <h3 class="timeline-role">Alternante Développeuse Web</h3>
+          <p class="timeline-org">
+            <i class="ti ti-building-hospital"></i>
+            Hopinnov &nbsp;·&nbsp; Chartres de Bretagne
+          </p>
+          <p class="timeline-desc">
+            Développement web avec Python, PHP et JavaScript. Contribution à des projets open source
+            et participation active aux cycles de développement agiles.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">Avr. 2024 — Mai 2024</p>
+          <h3 class="timeline-role">Stagiaire Développeuse Web</h3>
+          <p class="timeline-org">
+            <i class="ti ti-building-community"></i>
+            Association AG35 &nbsp;·&nbsp; Rennes
+          </p>
+          <p class="timeline-desc">
+            Refonte complète du site web associatif : mise en place de l'hébergement, gestion en ligne
+            des adhésions et module de publication et gestion des événements.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">Oct. 2022 — Juil. 2023</p>
+          <h3 class="timeline-role">Stagiaire Ingénieure Monitoring</h3>
+          <p class="timeline-org">
+            <i class="ti ti-antenna-bars-5"></i>
+            Orange Guinée &nbsp;·&nbsp; Conakry
+          </p>
+          <p class="timeline-desc">
+            Supervision du réseau télécom en temps réel, analyse de métriques de performance
+            et résolution d'incidents techniques pour assurer la continuité de service.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       COMPÉTENCES
+  =================================================== -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-label">Expertise</p>
+        <h2 class="section-title">Mes <em>compétences</em></h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <p class="skill-group-title"><i class="ti ti-code"></i> Langages</p>
+          <div class="skill-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">PHP</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">R</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-title"><i class="ti ti-components"></i> Frameworks</p>
+          <div class="skill-tags">
+            <span class="tag">Symfony</span>
+            <span class="tag">Laravel</span>
+            <span class="tag">Angular</span>
+            <span class="tag">Odoo</span>
+            <span class="tag">MediaWiki</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-title"><i class="ti ti-database"></i> Bases de données</p>
+          <div class="skill-tags">
+            <span class="tag">SQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MariaDB</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-title"><i class="ti ti-tools"></i> Outils</p>
+          <div class="skill-tags">
+            <span class="tag">Git</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Talend</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Power Apps</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-title"><i class="ti ti-ruler-2"></i> Conception</p>
+          <div class="skill-tags">
+            <span class="tag">POO</span>
+            <span class="tag">MVC</span>
+            <span class="tag">DAO</span>
+            <span class="tag">UML</span>
+            <span class="tag">MERISE</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FOOTER / CONTACT
+  =================================================== -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <h2 class="footer-title">Travaillons <em>ensemble</em></h2>
+      <p class="footer-sub"></p>
+      <p style="font-size:13px;color:#8C6E5E;margin-top:6px;">Actuellement à la recherche d'un CDI en développement logiciel — disponible à partir de 2026.</p>
+      <div class="footer-links">
+        <a href="mailto:hadjasorybintabah@gmail.com" class="footer-link">
+          <i class="ti ti-mail"></i>
+          hadjasorybintabah@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/hadja-sory-binta-bah/" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <i class="ti ti-brand-linkedin"></i>
+          LinkedIn
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <i class="ti ti-brand-github"></i>
+          GitHub
+        </a>
+      </div>
+      <p class="footer-copy">© 2025 Hadja Sory Binta BAH &nbsp;·&nbsp; Développeuse Full-Stack</p>
+    </div>
+  </footer>
+
+</body>
+</html>
