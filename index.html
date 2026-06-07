@@ -294,8 +294,9 @@
 
     .card-links {
       display: flex;
-      gap: 1rem;
-      padding-top: 0.75rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      padding-top: 1rem;
       border-top: 1px solid var(--border);
       margin-top: auto;
     }
@@ -303,14 +304,23 @@
     .card-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.8rem;
+      gap: 0.4rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: var(--text-sec);
       text-decoration: none;
-      transition: color 0.2s;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      border: 1.5px solid var(--border);
+      color: var(--text-sec);
+      background: var(--beige);
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
     }
-    .card-link:hover { color: var(--accent); }
+    .card-link:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      transform: translateY(-1px);
+    }
 
     /* =====================================================
        TIMELINE — EXPERIENCES
