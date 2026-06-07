@@ -658,26 +658,31 @@
           </div>
           <div class="card-links">
             <a href="https://github.com/bintabah/miniediteurab" target="_blank" rel="noopener noreferrer" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
-            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
           </div>
         </article>
 
-        <!-- Projet Data -->
+        <!-- AG35 -->
         <article class="card">
           <div class="card-top">
-            <div class="card-icon"><i class="ti ti-chart-bar"></i></div>
+            <div class="card-icon"><i class="ti ti-users"></i></div>
             <span class="badge badge-done">Terminé</span>
           </div>
-          <h3>Projet Data</h3>
-          <p>Pipeline ETL pour l'extraction, la transformation et le chargement de données métier avec tableaux de bord analytiques.</p>
+          <h3>AG35 — Association des Guinéens d'Ille-et-Vilaine</h3>
+          <p>Site web complet pour une association d'aide à la communauté guinéenne de Rennes. Gestion des événements (HelloAsso), adhésions, actualités, volontariat et hébergement. Interface d'administration complète (EasyAdmin) avec intégrations Google Calendar, HelloAsso API v5 et envoi d'emails. Déploiement automatisé via GitHub Actions.</p>
           <div class="card-tags">
-            <span class="tag">Talend</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">ETL</span>
+            <span class="tag">PHP 8.1</span>
+            <span class="tag">Symfony 5.4</span>
+            <span class="tag">Doctrine ORM</span>
+            <span class="tag">MariaDB / PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Fly.io</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">HelloAsso API</span>
+            <span class="tag">Google Calendar API</span>
           </div>
           <div class="card-links">
-            <a href="#" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
-            <a href="#" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
+            <a href="https://github.com/bintabah/ag35_website" target="_blank" rel="noopener noreferrer" class="card-link"><i class="ti ti-brand-github"></i> Code</a>
+            <a href="https://ag35-website.fly.dev" target="_blank" rel="noopener noreferrer" class="card-link"><i class="ti ti-external-link"></i> Démo</a>
           </div>
         </article>
 
@@ -819,8 +824,7 @@
   <footer id="contact">
     <div class="footer-inner">
       <h2 class="footer-title">Travaillons <em>ensemble</em></h2>
-      <p class="footer-sub"></p>
-      <p style="font-size:13px;color:#8C6E5E;margin-top:6px;">Actuellement à la recherche d'un CDI en développement logiciel — disponible à partir de 2026.</p>
+      <p style="font-size:13px;color:#c9b5a8;margin-top:0.5rem;margin-bottom:2rem;">Actuellement à la recherche d'un CDI en développement logiciel — disponible à partir de septembre 2026.</p>
       <div class="footer-links">
         <a href="mailto:hadjasorybintabah@gmail.com" class="footer-link">
           <i class="ti ti-mail"></i>
@@ -830,14 +834,17 @@
           <i class="ti ti-brand-linkedin"></i>
           LinkedIn
         </a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <a href="https://github.com/bintabah" target="_blank" rel="noopener noreferrer" class="footer-link">
           <i class="ti ti-brand-github"></i>
           GitHub
         </a>
       </div>
-      <p class="footer-copy">© 2025 Hadja Sory Binta BAH &nbsp;·&nbsp; Développeuse Full-Stack</p>
+      <p class="footer-copy">© <span id="year"></span> Hadja Sory Binta BAH &nbsp;·&nbsp; Développeuse Full-Stack</p>
     </div>
   </footer>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
